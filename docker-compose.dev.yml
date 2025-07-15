@@ -1,0 +1,64 @@
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: aidi-cms-postgres-dev
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    networks:
+      - aidi-dev-network
+
+  # Strapi Application (Development)
+  # strapi:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   container_name: aidi-cms-strapi-dev
+  #   restart: unless-stopped
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     DATABASE_CLIENT: ${DATABASE_CLIENT}
+  #     DATABASE_HOST: postgres
+  #     DATABASE_PORT: 5432
+  #     DATABASE_NAME: ${DATABASE_NAME}
+  #     DATABASE_USERNAME: ${DATABASE_USERNAME}
+  #     DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+  #     DATABASE_SSL: ${DATABASE_SSL}
+  #     NODE_ENV: development
+  #     HOST: ${HOST}
+  #     PORT: ${PORT}
+  #     APP_KEYS: "dev-key-1,dev-key-2,dev-key-3,dev-key-4"
+  #     API_TOKEN_SALT: "dev-api-token-salt"
+  #     ADMIN_JWT_SECRET: "dev-admin-jwt-secret"
+  #     JWT_SECRET: "dev-jwt-secret"
+  #     TRANSFER_TOKEN_SALT: "dev-transfer-token-salt"
+  #     ENABLE_ADMIN_REGISTRATION: ${ENABLE_ADMIN_REGISTRATION}
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #     - /app/.cache
+  #   ports:
+  #     - "1338:1337"
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - aidi-dev-network
+  #   command: npm run develop
+
+volumes:
+  postgres_dev_data:
+    driver: local
+
+networks:
+  aidi-dev-network:
+    driver: bridge 
