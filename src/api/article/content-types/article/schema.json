@@ -53,6 +53,12 @@
         "shared.rich-text",
         "shared.slider"
       ]
+    },
+    "highlight": {
+      "type": "boolean"
+    },
+    "isPopular": {
+      "type": "boolean"
     }
   }
 }
