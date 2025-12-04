@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_locations",
+  "info": {
+    "singularName": "job-location",
+    "pluralName": "job-locations",
+    "displayName": "Job Location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text"
+    }
+  }
+}
