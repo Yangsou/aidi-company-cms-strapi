@@ -24,8 +24,8 @@
         "shared.slider"
       ]
     },
-    "highlight": {
-      "type": "boolean"
+    "shortDescription": {
+      "type": "string"
     }
   }
 }
