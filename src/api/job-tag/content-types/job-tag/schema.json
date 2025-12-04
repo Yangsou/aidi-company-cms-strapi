@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_tags",
+  "info": {
+    "singularName": "job-tag",
+    "pluralName": "job-tags",
+    "displayName": "Job Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "blue",
+        "indigo",
+        "purple",
+        "green",
+        "yellow",
+        "teal",
+        "pink"
+      ]
+    },
+    "job": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::job.job",
+      "inversedBy": "job_tags"
+    }
+  }
+}

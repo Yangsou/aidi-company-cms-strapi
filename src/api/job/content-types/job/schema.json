@@ -9,11 +9,7 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": false
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string",
@@ -26,6 +22,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::job-location.job-location"
+    },
+    "job_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job-tag.job-tag",
+      "mappedBy": "job"
     }
   }
 }

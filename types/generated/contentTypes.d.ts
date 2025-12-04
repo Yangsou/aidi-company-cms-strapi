@@ -669,6 +669,38 @@ export interface ApiJobLocationJobLocation extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiJobTagJobTag extends Struct.CollectionTypeSchema {
+  collectionName: 'job_tags';
+  info: {
+    displayName: 'Job Tag';
+    pluralName: 'job-tags';
+    singularName: 'job-tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    job: Schema.Attribute.Relation<'manyToOne', 'api::job.job'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::job-tag.job-tag'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    theme: Schema.Attribute.Enumeration<
+      ['blue', 'indigo', 'purple', 'green', 'yellow', 'teal', 'pink']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiJobJob extends Struct.CollectionTypeSchema {
   collectionName: 'jobs';
   info: {
@@ -679,11 +711,6 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: false;
-    };
-  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -692,6 +719,7 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::job-location.job-location'
     >;
+    job_tags: Schema.Attribute.Relation<'oneToMany', 'api::job-tag.job-tag'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::job.job'> &
       Schema.Attribute.Private;
@@ -1282,6 +1310,7 @@ declare module '@strapi/strapi' {
       'api::contact-submission.contact-submission': ApiContactSubmissionContactSubmission;
       'api::global.global': ApiGlobalGlobal;
       'api::job-location.job-location': ApiJobLocationJobLocation;
+      'api::job-tag.job-tag': ApiJobTagJobTag;
       'api::job.job': ApiJobJob;
       'api::subscriber.subscriber': ApiSubscriberSubscriber;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
