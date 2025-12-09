@@ -28,6 +28,20 @@
       "relation": "oneToMany",
       "target": "api::job-tag.job-tag",
       "mappedBy": "job"
+    },
+    "responbilities": {
+      "type": "blocks",
+      "required": true
+    },
+    "requiremenents": {
+      "type": "blocks",
+      "required": true
+    },
+    "skills": {
+      "type": "blocks"
+    },
+    "benefits": {
+      "type": "blocks"
     }
   }
 }
