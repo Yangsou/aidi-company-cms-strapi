@@ -1,26 +1,23 @@
 {
   "kind": "collectionType",
-  "collectionName": "team_members",
+  "collectionName": "activities",
   "info": {
-    "singularName": "team-member",
-    "pluralName": "team-members",
-    "displayName": "Team Member"
+    "singularName": "activity",
+    "pluralName": "activities",
+    "displayName": "Activity"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "job_title": {
+    "title": {
       "type": "string"
     },
     "description": {
       "type": "blocks"
     },
-    "avatar": {
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -30,11 +27,9 @@
         "audios"
       ]
     },
-    "shortDescription": {
-      "type": "text"
-    },
-    "priority": {
-      "type": "integer"
+    "date": {
+      "type": "datetime",
+      "required": true
     }
   }
 }

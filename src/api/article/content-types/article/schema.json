@@ -15,13 +15,10 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "text",
-      "maxLength": 300
-    },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "cover": {
       "type": "media",
@@ -53,6 +50,21 @@
         "shared.rich-text",
         "shared.slider"
       ]
+    },
+    "highlight": {
+      "type": "boolean"
+    },
+    "isPopular": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "readingTime": {
+      "type": "integer"
+    },
+    "date": {
+      "type": "date"
     }
   }
 }

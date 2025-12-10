@@ -19,12 +19,16 @@
     "@strapi/plugin-cloud": "5.18.0",
     "@strapi/plugin-users-permissions": "5.18.0",
     "@strapi/strapi": "5.18.0",
+    "better-sqlite3": "^12.4.1",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
+    "mysql2": "^3.15.3",
     "pg": "8.8.0",
+    "python3": "^0.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-csv-import-export": "^0.0.6",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
@@ -40,5 +44,9 @@
   "strapi": {
     "uuid": "9de715f0-9066-4ce4-b090-5f167a16c409",
     "installId": "b6e62b7ff0ed80d0e3292222eee934d99efbfcccc3b5c0750460c07e0732c35d"
+  },
+  "resolutions": {
+    "minimatch": "^9.0.3",
+    "@types/minimatch": "5.1.2"
   }
 }
