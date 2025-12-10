@@ -26,6 +26,10 @@
         "videos",
         "audios"
       ]
+    },
+    "date": {
+      "type": "datetime",
+      "required": true
     }
   }
 }

@@ -32,6 +32,9 @@
     },
     "shortDescription": {
       "type": "text"
+    },
+    "priority": {
+      "type": "integer"
     }
   }
 }

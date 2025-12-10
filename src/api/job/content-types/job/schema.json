@@ -29,19 +29,13 @@
       "target": "api::job-tag.job-tag",
       "mappedBy": "job"
     },
-    "responbilities": {
-      "type": "blocks",
-      "required": true
-    },
-    "requiremenents": {
-      "type": "blocks",
-      "required": true
-    },
-    "skills": {
+    "description": {
       "type": "blocks"
     },
-    "benefits": {
-      "type": "blocks"
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
     }
   }
 }

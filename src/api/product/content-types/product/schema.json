@@ -40,6 +40,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "priority": {
+      "type": "integer"
     }
   }
 }
