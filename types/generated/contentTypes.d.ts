@@ -683,7 +683,7 @@ export interface ApiJobTagJobTag extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    job: Schema.Attribute.Relation<'manyToOne', 'api::job.job'>;
+    jobs: Schema.Attribute.Relation<'manyToMany', 'api::job.job'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -720,7 +720,7 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::job-location.job-location'
     >;
-    job_tags: Schema.Attribute.Relation<'oneToMany', 'api::job-tag.job-tag'>;
+    job_tags: Schema.Attribute.Relation<'manyToMany', 'api::job-tag.job-tag'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::job.job'> &
       Schema.Attribute.Private;

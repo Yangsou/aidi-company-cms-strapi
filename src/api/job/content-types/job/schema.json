@@ -25,9 +25,9 @@
     },
     "job_tags": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::job-tag.job-tag",
-      "mappedBy": "job"
+      "mappedBy": "jobs"
     },
     "description": {
       "type": "blocks"

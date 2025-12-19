@@ -26,9 +26,9 @@
         "pink"
       ]
     },
-    "job": {
+    "jobs": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::job.job",
       "inversedBy": "job_tags"
     }
