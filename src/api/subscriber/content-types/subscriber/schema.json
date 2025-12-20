@@ -13,6 +13,9 @@
   "attributes": {
     "email": {
       "type": "email"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }
