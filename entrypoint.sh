@@ -4,9 +4,9 @@ set -e
 cp ./env.example ./.env
 # Update DB connection settings in .env
 sed -i "s|__DATABASE_HOST__|${AZURE_POSTGRESQL_HOST}|g" ./.env
-sed -i "s|__DATABASE_NAME__|${AZURE_POSTGRESQL_USERNAME}|g" ./.env
+sed -i "s|__DATABASE_NAME__|${AZURE_POSTGRESQL_DATABASE}|g" ./.env
 sed -i "s|__DATABASE_PORT__|${AZURE_POSTGRESQL_PORT}|g" ./.env
-sed -i "s|__DATABASE_USERNAME__|${AZURE_POSTGRESQL_DATABASE}|g" ./.env
+sed -i "s|__DATABASE_USERNAME__|${AZURE_POSTGRESQL_USERNAME}|g" ./.env
 sed -i "s|__DATABASE_PASSWORD__|${AZURE_POSTGRESQL_PASSWORD}|g" ./.env
 
 # Update JWT Token settings in .env    
