@@ -47,8 +47,8 @@ RUN mkdir -p /app/public/uploads
 RUN chown -R strapi:nodejs /app
 
 # Entry script that replaces placeholders with env vars
-COPY ./entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY ./entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 # Switch to strapi user
 USER strapi
@@ -57,7 +57,7 @@ USER strapi
 EXPOSE 1337
 
 # Use our entrypoint (replace the one from Application base image)
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
