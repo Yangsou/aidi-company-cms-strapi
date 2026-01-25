@@ -69,15 +69,15 @@
 
 FROM node:18-alpine
 
-# Set working directory
-WORKDIR /app
-
 # Native deps for sharp / sqlite (safe even if not used)
 RUN apk add --no-cache \
   python3 \
   make \
   g++ \
   vips-dev
+
+# Set working directory
+WORKDIR /app
 
 # Copy package files
 COPY package.json package-lock.json ./
@@ -91,6 +91,7 @@ RUN npm ci
 
 # Copy source code
 COPY . .
+COPY env.example .
 
 # Install dependencies
 #RUN npm install && npm cache clean --force
@@ -104,7 +105,6 @@ RUN npm prune --production
 
 # Create uploads directory
 RUN mkdir -p /app/public/uploads
-
 
 # Expose port
 EXPOSE 1337
