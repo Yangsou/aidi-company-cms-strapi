@@ -52,6 +52,13 @@ USER strapi
 # Expose port
 EXPOSE 1337
 
+# Entry script that replaces placeholders with env vars
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Use our entrypoint (replace the one from Application base image)
+ENTRYPOINT ["/entrypoint.sh"]
+
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD node healthcheck.js
