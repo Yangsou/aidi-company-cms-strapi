@@ -109,6 +109,9 @@ RUN mkdir -p /app/public/uploads
 # Expose port
 EXPOSE 1337
 
+# # Change ownership to strapi user
+RUN chown -R strapi:nodejs /app
+
 # Entry script that replaces placeholders with env vars
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
