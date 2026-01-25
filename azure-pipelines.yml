@@ -27,19 +27,19 @@ stages:
           $(Build.BuildId)
           latest
 
-# - stage: Deploy
-#   displayName: Deploy to Azure Container App
-#   dependsOn: Build
-#   jobs:
-#   - job: Deploy
-#     steps:
-#     - task: AzureCLI@2
-#       inputs:
-#         azureSubscription: $(ContainerAppConnection)
-#         scriptType: bash
-#         scriptLocation: inlineScript
-#         inlineScript: |
-#           az containerapp update \
-#             --name $(ContainerAppName) \
-#             --resource-group $(ResourceGroup) \
-#             --image $(RegistryName)/$(ImageName):$(Build.BuildId)
+- stage: Deploy
+  displayName: Deploy to Azure Container App
+  dependsOn: Build
+  jobs:
+  - job: Deploy
+    steps:
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: $(ContainerAppConnection)
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: |
+          az containerapp update \
+            --name $(ContainerAppName) \
+            --resource-group $(ResourceGroup) \
+            --image $(RegistryName)/$(ImageName):$(Build.BuildId)
