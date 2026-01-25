@@ -46,15 +46,15 @@ RUN mkdir -p /app/public/uploads
 # Change ownership to strapi user
 RUN chown -R strapi:nodejs /app
 
+# Entry script that replaces placeholders with env vars
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Switch to strapi user
 USER strapi
 
 # Expose port
 EXPOSE 1337
-
-# Entry script that replaces placeholders with env vars
-COPY ./entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 
 # Use our entrypoint (replace the one from Application base image)
 ENTRYPOINT ["/entrypoint.sh"]
@@ -65,3 +65,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 
 # Start the application
 CMD ["npm", "start"] 
+
