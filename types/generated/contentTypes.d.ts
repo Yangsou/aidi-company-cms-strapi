@@ -768,7 +768,7 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
-    displayName: 'Product';
+    displayName: 'Solution';
     pluralName: 'products';
     singularName: 'product';
   };
