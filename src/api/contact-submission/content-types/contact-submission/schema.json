@@ -29,6 +29,15 @@
     },
     "expectedTime": {
       "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "sectoral": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
     }
   }
 }
